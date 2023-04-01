@@ -1,16 +1,17 @@
 import React from "react";
-import { Box, Link} from '@mui/material';
+import { Link } from "react-router-dom";
+import  Box  from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
 const menuItems = [
-    {menuName:'Home',menuLink:'/'},
-    {menuName:'About Us',menuLink:'/about-us'},
-    {menuName:'Products',menuLink:'/products'},
-    {menuName:'Media Center',menuLink:'/news'},
-    {menuName:'Contact Us',menuLink:'/contact-us'},
-    {menuName:'Blog',menuLink:'/blog'},
-    {menuName:'Register',menuLink:'/oes'},
-    {menuName:'Login',menuLink:'/login'}
+    {name:'Home',path:'/'},
+    {name:'About Us',path:'/about-us'},
+    {name:'Products',path:'/products'},
+    {name:'Media Center',path:'/news'},
+    {name:'Contact Us',path:'/contact-us'},
+    {name:'Blog',path:'/blog'},
+    {name:'Register',path:'/oes'},
+    {name:'Login',path:'/login'}
 ]
 
 
@@ -29,7 +30,7 @@ const Menu = () => {
     return(
         <Box sx={{display:'flex',justifyContent:'flex-end'}}>
             {menuItems.map((menuItem,Index) => (
-                <MenuLink key={Index} href={menuItem.menuLink} sx={{p:0,mx:1}}>{menuItem.menuName}</MenuLink>
+                <MenuLink key={Index} to={menuItem.path} sx={{p:0,mx:1}}>{menuItem.name}</MenuLink>
             ))}
         </Box>
     )

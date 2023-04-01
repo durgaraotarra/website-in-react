@@ -1,17 +1,19 @@
-//import logo from './logo.svg';
 import React from 'react';
-import Header from './components/header/Header';
-import {} from '@mui/material';
-import Footer from './components/footer/Footer';
-import GetProduct from './pages/GetProduct';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Layout from './pages/Layout';
+import Products from './pages/Products';
 
 function App() {
   return (
-    <>
-      <Header />
-      <GetProduct />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path='/' exact element={<Home />} />
+          <Route path='/products' element={<Products />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

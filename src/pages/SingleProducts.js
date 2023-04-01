@@ -4,7 +4,7 @@ import { getProductData } from "../api/otrim";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Container } from "@mui/system";
 
-const GetProduct = () => {
+const PageProducts = () => {
 
     const[product, setProduct] = useState({});
 
@@ -72,4 +72,4 @@ const GetProduct = () => {
 }
 
 
-export default GetProduct;
+export default PageProducts;
