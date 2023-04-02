@@ -20,12 +20,7 @@ function NavBar(){
                     <Grid item md={9}>
                         <Box>
                             <Menu />
-                            {/* <Button>
-                                <MenuIcon />
-                            </Button> */}
                         </Box>
-
-
                     </Grid>
                 </Grid>
             </Container>
