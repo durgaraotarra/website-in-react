@@ -22,10 +22,10 @@ const Products = () =>{
                     {
                         productList.map((product) => {
                             return(
-                                <Grid item xs={3}>
+                                <Grid item xs={3} key={product.name}>
                                     <Product name={product.name}
                                             content={product.content}
-                                            path={'/'+product.name.toLowerCase()} />
+                                            path={'/products/'+product.name.toLowerCase()} />
                                 </Grid>
                             )
                         })

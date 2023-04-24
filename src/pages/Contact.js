@@ -5,14 +5,14 @@ import TextField from '@mui/material/TextField';
 import { Container } from '@mui/system';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-
+import axios from 'axios';
 
 const url = 'https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json'; 
 
 
 
 const Contact = () => {
-    const [countries, setConuntries] = useState([]); 
+    const [countries, setConuntries] = useState([]);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -88,7 +88,14 @@ const Contact = () => {
         }
         setPhoneNumber(phoneNumber);
     }
-
+    const clear = () => {
+        setFirstName("");
+        setLastName("");
+        setCountryCode("");
+        setPhoneNumber("");
+        setEmail("");
+        setMessage("");
+    }
     const onMessageChange = (event) => {
         let message = event.target.value;
         if(!message){
@@ -97,12 +104,30 @@ const Contact = () => {
         } else {
             setMessageError("");
         }
-        setMessage(phoneNumber);
+        setMessage(message);
     }
 
-    // const onSubmit = () =>{
-    //     //fetch()
-    // }
+    const onSubmit = () =>{
+        axios.post('http://localhost:3001/savecontactus',{
+            firstName,
+            lastName,
+            email,
+            countryCode,
+            phoneNo:phoneNumber,
+            message
+        })
+        .then((response)=> {
+            //console.log(response);
+            alert("Thank you");
+        })
+        .catch((error)=>{
+            //console.log(error);
+            alert("Not submitted");
+        })
+        .finally(()=>{
+            clear();
+        });
+    }
 
 
     return(
@@ -199,7 +224,7 @@ const Contact = () => {
                          />
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="contained" size="large">Submit</Button>
+                        <Button variant="contained" size="large" onClick={onSubmit}>Submit</Button>
                     </Grid>
                 </Grid>
             </Box>

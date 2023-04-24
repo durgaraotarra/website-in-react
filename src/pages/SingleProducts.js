@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Accordion, AccordionDetails, AccordionSummary, Box, Grid, Typography} from '@mui/material';
-import { getProductData } from "../api/otrim";
+import { getProductData } from "../api/GetProductData";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Container } from "@mui/system";
 
